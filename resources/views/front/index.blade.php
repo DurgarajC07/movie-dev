@@ -245,42 +245,41 @@
                     </div>
 
                     <ul class="movies-list  has-scrollbar">
-
-                        <li>
-                            <div class="movie-card">
-
-                                <a href="./movie-details.html">
-                                    <figure class="card-banner">
-                                        <img src="./assets/images/upcoming-1.png" alt="The Northman movie poster">
-                                    </figure>
-                                </a>
-
-                                <div class="title-wrapper">
-                                    <a href="./movie-details.html">
-                                        <h3 class="card-title">The Northman</h3>
+                        @foreach ($new_movies as $movie)
+                            <li>
+                                <div class="movie-card">
+                                    <a href="{{ url('movie-details', $movie->id) }}">
+                                        <!-- Assuming you have a route for movie-details and $movie->id is the movie's id -->
+                                        <figure class="card-banner">
+                                            <img src="{{ asset('uploads/' . $movie->image) }}"
+                                                alt="{{ $movie->name }} movie poster">
+                                        </figure>
                                     </a>
-
-                                    <time datetime="2022">2022</time>
-                                </div>
-
-                                <div class="card-meta">
-                                    <div class="badge badge-outline">HD</div>
-
-                                    <div class="duration">
-                                        <ion-icon name="time-outline"></ion-icon>
-
-                                        <time datetime="PT137M">137 min</time>
+                                    <div class="title-wrapper">
+                                        <a href="{{ url('movie-details', $movie->id) }}">
+                                            <!-- Again, assuming you have a route for movie-details -->
+                                            <h3 class="card-title">{{ $movie->name }}</h3>
+                                        </a>
+                                        @php
+                                            $release_date = new DateTime($movie->year);
+                                            $formatted_year = $release_date->format('Y');
+                                        @endphp
+                                        <time datetime="{{ $movie->year }}">{{ $formatted_year }}</time>
                                     </div>
-
-                                    <div class="rating">
-                                        <ion-icon name="star"></ion-icon>
-
-                                        <data>8.5</data>
+                                    <div class="card-meta">
+                                        <div class="badge badge-outline">HD</div>
+                                        <div class="duration">
+                                            <ion-icon name="time-outline"></ion-icon>
+                                            <time datetime="{{ $movie->duration }}">{{ $movie->duration }}</time>
+                                        </div>
+                                        <div class="rating">
+                                            <ion-icon name="star"></ion-icon>
+                                            <data>{{ $movie->rating }}</data>
+                                        </div>
                                     </div>
                                 </div>
-
-                            </div>
-                        </li>
+                            </li>
+                        @endforeach
 
                         <li>
                             <div class="movie-card">

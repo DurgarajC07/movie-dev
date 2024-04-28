@@ -7,6 +7,7 @@ use OpenAdmin\Admin\Form;
 use OpenAdmin\Admin\Grid;
 use OpenAdmin\Admin\Show;
 use \App\Models\Movie;
+use \App\Models\Category;
 
 class MovieController extends AdminController
 {
@@ -83,7 +84,7 @@ class MovieController extends AdminController
     {
         $form = new Form(new Movie());
 
-        $form->text('category_id', __('Category id'));
+        $form->select('category_id', __('Category id'))->options(Category::all()->pluck('category_name', 'id'));
         $form->image('image', __('Image'));
         $form->text('name', __('Name'));
         $form->textarea('description', __('Description'));

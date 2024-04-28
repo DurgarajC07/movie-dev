@@ -8,7 +8,7 @@ use \App\Models\Category;
 class Movie extends Model
 {
 
-  public function cateogries()
+  public function category()
   {
       return $this->belongsTo(Category::class);
   }

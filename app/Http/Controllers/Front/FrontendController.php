@@ -13,4 +13,11 @@ class FrontendController extends Controller
         $data['new_movies'] = Movie::orderBy('created_at', 'desc')->get();
         return view('front.index',$data);
     }
+
+    public function show($id)
+    {
+        $data['movie'] = Movie::findOrFail($id)->load('category'); 
+    
+        return view('front.movie-details', $data);
+    }
 }

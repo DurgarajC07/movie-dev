@@ -4,8 +4,8 @@
         <article>
 
             <!--
-                                - #HERO
-                              -->
+                                                                - #HERO
+                                                              -->
 
             <section class="hero">
                 <div class="container">
@@ -66,8 +66,8 @@
 
 
             <!--
-                                - #UPCOMING
-                              -->
+                                                                - #UPCOMING
+                                                              -->
 
             <section class="upcoming">
                 <div class="container">
@@ -255,8 +255,8 @@
 
 
             <!--
-                                - #SERVICE
-                              -->
+                                                                - #SERVICE
+                                                              -->
 
             <section class="service">
                 <div class="container">
@@ -338,8 +338,8 @@
 
 
             <!--
-                                - #TOP RATED
-                              -->
+                                                                - #TOP RATED
+                                                              -->
 
             <section class="top-rated">
                 <div class="container">
@@ -369,6 +369,40 @@
                     </ul>
 
                     <ul class="movies-list">
+                        @foreach ($top_rates as $movie)
+                            <li>
+                                <div class="movie-card">
+                                    <a href="{{ $movie->trailer_link }}">
+                                        <figure class="card-banner">
+                                            <img src="{{ asset('uploads/' . $movie->image) }}"
+                                                alt="{{ $movie->name }} movie poster">
+                                        </figure>
+                                    </a>
+
+                                    <div class="title-wrapper">
+                                        <a href="{{ $movie->trailer_link }}">
+                                            <h3 class="card-title">{{ $movie->name }}</h3>
+                                        </a>
+
+                                        <time datetime="{{ $movie->year }}">{{ $movie->year }}</time>
+                                    </div>
+
+                                    <div class="card-meta">
+                                        <div class="badge badge-outline">{{ $movie->quality }}</div>
+
+                                        <div class="duration">
+                                            <ion-icon name="time-outline"></ion-icon>
+                                            <time datetime="PT{{ $movie->duration }}"> {{ $movie->duration }} min</time>
+                                        </div>
+
+                                        <div class="rating">
+                                            <ion-icon name="star"></ion-icon>
+                                            <data>{{ $movie->rating }}</data>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
 
                         <li>
                             <div class="movie-card">
@@ -668,8 +702,8 @@
 
 
             <!--
-                                - #TV SERIES
-                              -->
+                                                                - #TV SERIES
+                                                              -->
 
             <section class="tv-series">
                 <div class="container">
@@ -834,8 +868,8 @@
 
 
             <!--
-                                - #CTA
-                              -->
+                                                                - #CTA
+                                                              -->
 
             <section class="cta">
                 <div class="container">

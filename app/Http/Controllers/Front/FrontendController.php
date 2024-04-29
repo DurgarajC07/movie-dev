@@ -11,6 +11,9 @@ class FrontendController extends Controller
     public function index()
     {
         $data['new_movies'] = Movie::orderBy('created_at', 'desc')->get();
+        $data['top_rates'] = Movie::where('rating', '>', 7)
+        ->orderBy('created_at', 'desc')
+        ->get();
         return view('front.index',$data);
     }
 

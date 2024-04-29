@@ -68,7 +68,23 @@
                             </div>
 
                             <div class="ganre-wrapper">
-                                <a href="#">{{ $movie->category->category_name }}</a>
+                                @if (is_array(json_decode($movie->category_id, true)))
+                                    @foreach (json_decode($movie->category_id) as $categoryId)
+                                        @php
+                                            $category = \App\Models\Category::find($categoryId);
+                                        @endphp
+                                        @if ($category)
+                                            <a href="#">{{ $category->category_name }}</a>
+                                        @endif
+                                    @endforeach
+                                @else
+                                    @php
+                                        $category = \App\Models\Category::find($movie->category_id);
+                                    @endphp
+                                    @if ($category)
+                                        <a href="#">{{ $category->category_name }}</a>
+                                    @endif
+                                @endif
                             </div>
 
                             <div class="date-time">

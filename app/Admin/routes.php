@@ -14,6 +14,10 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('categories', CategoryController::class);
     $router->resource('movies', MovieController::class);
+    $router->resource('shows', ShowController::class);
+    $router->resource('episodes', EpisodeController::class);
+
+
 
 
 });

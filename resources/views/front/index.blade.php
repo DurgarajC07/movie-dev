@@ -4,8 +4,8 @@
         <article>
 
             <!--
-                                                                                                                                                                                                                                                                                                                                                                                                            - #UPCOMING
-                                                                                                                                                                                                                                                                                                                                                                                                          -->
+                                                                                                                                                                                                                                                                                                                                                                                                                    - #UPCOMING
+                                                                                                                                                                                                                                                                                                                                                                                                                  -->
 
             <section class="upcoming">
                 <div class="container">
@@ -113,8 +113,8 @@
             </section>
 
             <!--
-                                                                                                                                                                                                                                                                                                                                                                                                            - #TOP RATED
-                                                                                                                                                                                                                                                                                                                                                                                                          -->
+                                                                                                                                                                                                                                                                                                                                                                                                                    - #TOP RATED
+                                                                                                                                                                                                                                                                                                                                                                                                                  -->
 
             <section class="top-rated">
                 <div class="container">
@@ -135,7 +135,7 @@
 
                     </ul>
 
-                    <ul class="movies-list has-scrollbar">
+                    <ul class="movies-list ">
                         @foreach ($top_rates as $movie)
                             <li>
                                 <div class="movie-card">
@@ -183,8 +183,8 @@
 
 
             <!--
-                                                                                                                                                                                                                                                                                                                                                                                                            - #TV SERIES
-                                                                                                                                                                                                                                                                                                                                                                                                          -->
+                                                                                                                                                                                                                                                                                                                                                                                                                    - #TV SERIES
+                                                                                                                                                                                                                                                                                                                                                                                                                  -->
 
             <section class="tv-series">
                 <div class="container">

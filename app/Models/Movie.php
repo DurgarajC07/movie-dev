@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use \App\Models\Category;
+use \App\Models\MovieLink;
 
 class Movie extends Model
 {
@@ -12,4 +13,9 @@ class Movie extends Model
   {
       return $this->belongsTo(Category::class);
   }
+
+  public function movielink()
+    {
+        return $this->hasMany(MovieLink::class);
+    }
 }

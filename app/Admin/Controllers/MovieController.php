@@ -35,9 +35,7 @@ class MovieController extends AdminController
         $grid->column('year', __('Year'));
         $grid->column('duration', __('Duration'));
         $grid->column('rating', __('Rating'));
-        $grid->column('quality', __('Quality'));
         $grid->column('trailer_link', __('Trailer link'));
-        $grid->column('download_link', __('Download link'));
         $grid->column('file_name', __('File name'));
         $grid->column('popular', __('Popular'));
         $grid->column('created_at', __('Created at'));
@@ -64,9 +62,7 @@ class MovieController extends AdminController
         $show->field('year', __('Year'));
         $show->field('duration', __('Duration'));
         $show->field('rating', __('Rating'));
-        $show->field('quality', __('Quality'));
         $show->field('trailer_link', __('Trailer link'));
-        $show->field('download_link', __('Download link'));
         $show->field('file_name', __('File name'));
         $show->field('popular', __('Popular'));
         $show->field('created_at', __('Created at'));
@@ -91,9 +87,7 @@ class MovieController extends AdminController
         $form->date('year', __('Year'))->default(date('Y-m-d'));
         $form->time('duration', __('Duration'))->default(date('H:i:s'));
         $form->text('rating', __('Rating'));
-        $form->text('quality', __('Quality'));
         $form->text('trailer_link', __('Trailer link'));
-        $form->text('download_link', __('Download link'));
         $form->text('file_name', __('File name'));
         $form->switch('popular', __('Popular'));
 

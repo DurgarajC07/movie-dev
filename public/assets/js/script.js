@@ -50,3 +50,30 @@ window.addEventListener("scroll", function () {
   window.scrollY >= 500 ? goTopBtn.classList.add("active") : goTopBtn.classList.remove("active");
 
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var type = localStorage.getItem('contentType'); // Check if the content type is stored in local storage
+
+  if (type) {
+      toggleContent(type); // If stored, display the corresponding content
+  }
+});
+
+function toggleContent(type) {
+  var moviesContent = document.getElementById('moviesContent');
+  var tvShowsContent = document.getElementById('tvShowsContent');
+  var sectionTitle = document.getElementById('sectionTitle');
+
+  if (type === 'movies') {
+      moviesContent.style.display = "block";
+      tvShowsContent.style.display = "none";
+      sectionTitle.innerText = "Trending Movies";
+      localStorage.setItem('contentType', 'movies'); // Store the content type in local storage
+  } else if (type === 'tvShows') {
+      moviesContent.style.display = "none";
+      tvShowsContent.style.display = "block";
+      sectionTitle.innerText = "Trending TV Shows";
+      localStorage.setItem('contentType', 'tvShows'); // Store the content type in local storage
+  }
+}

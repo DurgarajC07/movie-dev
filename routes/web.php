@@ -16,4 +16,5 @@ use App\Http\Controllers\Front\FrontendController;
 */
 Route::get('/', [FrontendController::class, 'index']);
 Route::get('movie-details/{id}', [FrontendController::class, 'show'])->name('movie.details');
+Route::get('tvshow-details/{id}', [FrontendController::class, 'tvshow'])->name('tvshow.details');
 

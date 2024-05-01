@@ -19,9 +19,6 @@
                     <li>
                         <a href="#" class="footer-link">Web Series</a>
                     </li>
-                    <li>
-                        <a href="#" class="footer-link">Pricing</a>
-                    </li>
                 </ul>
             </div>
 
@@ -72,7 +69,7 @@
     <div class="footer-bottom">
         <div class="container">
             <p class="copyright">
-                &copy; {{ date('Y') }} <a href="#">codewithsadee</a>. All Rights Reserved
+                &copy; {{ date('Y') }} <a href="#">collerteam</a>. All Rights Reserved
             </p>
             <img src="{{ asset('assets/images/footer-bottom-img.png') }}" alt="Online banking companies logo"
                 class="footer-bottom-img">

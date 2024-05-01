@@ -30,7 +30,7 @@ class MovieLinkController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('movie.name', __('Movie Name'));
-        $grid->column('quality', __('Quality'));
+        $grid->column('quality', __('Quality'))->using([1 => 'SD', 2 => 'HD', 3=>'Full HD']);
         $grid->column('download_link', __('Download link'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -50,7 +50,7 @@ class MovieLinkController extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('movie.name', __('Movie Name'));
-        $show->field('quality', __('Quality'));
+        $show->field('quality', __('Quality'))->using([1 => 'SD', 2 => 'HD', 3=>'Full HD']);
         $show->field('download_link', __('Download link'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));

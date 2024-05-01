@@ -28,7 +28,7 @@ class MovieController extends AdminController
         $grid = new Grid(new Movie());
 
         $grid->column('id', __('Id'));
-        $grid->column('category_id', __('Category id'));
+        $grid->column('category.category_name', __('Category'));
         $grid->column('image')->image();
         $grid->column('name', __('Name'));
         $grid->column('description', __('Description'));
@@ -55,7 +55,7 @@ class MovieController extends AdminController
         $show = new Show(Movie::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('category_id', __('Category id'));
+        $show->field('category.category_name', __('Category'));
         $show->field('image')->image();
         $show->field('name', __('Name'));
         $show->field('description', __('Description'));

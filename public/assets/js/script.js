@@ -64,6 +64,9 @@ function toggleContent(type) {
   var moviesContent = document.getElementById('moviesContent');
   var tvShowsContent = document.getElementById('tvShowsContent');
   var sectionTitle = document.getElementById('sectionTitle');
+  var topmoviesContent = document.getElementById('topmoviesContent');
+  var topTvShowsContent = document.getElementById('topTvShowsContent');
+  var sectionTitle2 = document.getElementById('sectionTitle2');
 
   if (type === 'movies') {
       moviesContent.style.display = "block";
@@ -75,5 +78,15 @@ function toggleContent(type) {
       tvShowsContent.style.display = "block";
       sectionTitle.innerText = "Trending TV Shows";
       localStorage.setItem('contentType', 'tvShows'); // Store the content type in local storage
+  } else if (type === 'topTvShows') {
+    topmoviesContent.style.display = "none";
+    topTvShowsContent.style.display = "block";
+    sectionTitle2.innerText = "Top Rated TV Shows";
+    localStorage.setItem('contentType', 'topTvShows'); // Store the content type in local storage
+  }else if (type === 'topMovies') {
+    topmoviesContent.style.display = "block";
+    topTvShowsContent.style.display = "none";
+    sectionTitle2.innerText = "Top Rated Movies";
+    localStorage.setItem('contentType', 'topMovies'); // Store the content type in local storage
   }
 }

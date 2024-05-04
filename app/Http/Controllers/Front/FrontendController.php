@@ -13,13 +13,14 @@ class FrontendController extends Controller
     {
         $data['new_movies'] = Movie::orderBy('created_at', 'desc')->get();
         $data['new_shows'] = Shows::orderBy('created_at', 'desc')->get();
-        $data['top_rates'] = Movie::where('rating', '>', 7)
-        ->orderBy('created_at', 'desc')
+        $data['top_movies'] = Movie::where('rating', '>', 7)
+        ->orderBy('created_at', 'desc')->limit(8)
         ->get();
-        $data['hero'] = Movie::where('rating', '>', 7)
+        $data['top_shows'] = Shows::where('rating', '>', 7)
         ->orderBy('created_at', 'desc')
-        ->limit(1)
+        ->limit(8)
         ->get();
+        $data['best_shows'] = Shows::where('popular', 1)->orderBy('created_at', 'desc')->get();
 
         return view('front.index',$data);
     }

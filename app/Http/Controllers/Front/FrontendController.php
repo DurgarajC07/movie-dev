@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use \App\Models\Movie;
 use \App\Models\Shows;
+use \App\Models\MovieLink;
 
 class FrontendController extends Controller
 {
@@ -38,4 +39,13 @@ class FrontendController extends Controller
     
         return view('front.tvshow-details', $data);
     }
+
+
+    public function moviedownload($id)
+    {
+        $data['movielinks'] = Movie::findOrFail($id)->load('movielink'); 
+    
+        return view('front.movie-download', $data);
+    }
+    
 }

@@ -38,6 +38,7 @@ class MovieController extends AdminController
         $grid->column('trailer_link', __('Trailer link'));
         $grid->column('file_name', __('File name'));
         $grid->column('popular', __('Popular'));
+        $grid->column('poster')->image();
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -65,6 +66,7 @@ class MovieController extends AdminController
         $show->field('trailer_link', __('Trailer link'));
         $show->field('file_name', __('File name'));
         $show->field('popular', __('Popular'));
+        $show->field('poster')->image();
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -90,6 +92,7 @@ class MovieController extends AdminController
         $form->text('trailer_link', __('Trailer link'));
         $form->text('file_name', __('File name'));
         $form->switch('popular', __('Popular'));
+        $form->multipleImage('poster', __('Poster'));
 
         return $form;
     }

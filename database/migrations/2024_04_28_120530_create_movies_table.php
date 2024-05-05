@@ -27,6 +27,7 @@ class CreateMoviesTable extends Migration
             $table->string('download_link')->nullable();
             $table->string('file_name')->nullable();
             $table->string('popular')->nullable();
+            $table->json('poster')->nullable(); // JSON column for storing multiple images
             $table->timestamps();
         });
     }

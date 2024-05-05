@@ -89,6 +89,36 @@
                 /* Adjust height for large screens */
             }
         }
+
+        /* Screenshot gallery styles */
+        .screenshot-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* 2 columns */
+            gap: 20px;
+        }
+
+        /* Screenshot item styles */
+        .screenshot-item {
+            width: 100%;
+            /* Ensure each item takes full width of its container */
+        }
+
+        .screenshot-item img {
+            display: block;
+            margin: 0 auto;
+            /* Center the image horizontally */
+            max-width: 100%;
+            /* Ensure the image does not exceed its container's width */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-item img:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 
@@ -230,7 +260,21 @@
             </div>
 
 
-
+            @if ($show->poster)
+                <section class="top-rated">
+                    <div class="container">
+                        <h2 class="h2 section-title">Movie Screenshots</h2>
+                        <div class="screenshot-gallery">
+                            <!-- Screenshot items -->
+                            @foreach ($show->poster as $poster)
+                                <div class="screenshot-item">
+                                    <img src="{{ asset('uploads/' . $poster) }}" alt="Movie Screenshot">
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </section>
+            @endif
             <!--
         - #TV SERIES
       -->

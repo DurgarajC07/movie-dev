@@ -15,8 +15,9 @@ class CreateEpisodesTable extends Migration
     {
         Schema::create('episodes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('show_id');
+            $table->integer('shows_id');
             $table->string('episode_name')->nullable();
+            $table->string('quality');
             $table->string('episode_download_link')->nullable();
             $table->timestamps();
         });

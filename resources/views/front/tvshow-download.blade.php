@@ -37,18 +37,17 @@
 
             <section class="upcoming">
                 <div class="container">
-                    <h2 class="h2 section-title">{{ $movielinks->name }}</h2>
+                    <h2 class="h2 section-title">{{ $tvshowlinks->show_name }}</h2>
                     <div class="screenshot-gallery">
-
-                        @if ($movielinks->movielink->isNotEmpty())
+                        @if ($tvshowlinks->episode->isNotEmpty())
                             <h3 class="h3 card-title">Download Links</h3>
-                            @foreach ($movielinks->movielink as $link)
+                            @foreach ($tvshowlinks->episode as $link)
                                 <p><br></p>
 
                                 <li>
-                                    @if ($link->download_link)
-                                        <a href="{{ $link->download_link }}" class="filter-btn" target="_blank">Download
-                                            @if ($link->quality == 1)
+                                    @if ($link->episode_download_link)
+                                        <a href="{{ $link->episode_download_link }}" class="filter-btn" target="_blank">
+                                            {{ $link->episode_name }} Download @if ($link->quality == 1)
                                                 480p
                                             @elseif ($link->quality == 2)
                                                 720p

@@ -231,7 +231,7 @@
 
                         </div>
 
-                        <a href="./assets/images/movie-4.png" download class="download-btn">
+                        <a href="{{ route('tvshow.download', ['id' => $show->id]) }}" class="download-btn">
                             <span>Download</span>
 
                             <ion-icon name="download-outline"></ion-icon>

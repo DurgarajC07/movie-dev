@@ -25,6 +25,7 @@ class CreateShowsTable extends Migration
             $table->string('quality')->nullable();
             $table->string('trailer_link')->nullable();
             $table->boolean('popular')->nullable();
+            $table->json('poster')->nullable(); // JSON column for storing multiple images
             $table->timestamps();
         });
     }

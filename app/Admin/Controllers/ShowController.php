@@ -38,6 +38,7 @@ class ShowController extends AdminController
         $grid->column('quality', __('Quality'))->using([1 => 'SD', 2 => 'HD', 3=>'Full HD']);
         $grid->column('trailer_link', __('Trailer link'));
         $grid->column('popular', __('Popular'));
+        $grid->column('poster')->image();
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -65,6 +66,7 @@ class ShowController extends AdminController
         $show->field('quality', __('Quality'))->using([1 => 'SD', 2 => 'HD', 3=>'Full HD']);
         $show->field('trailer_link', __('Trailer link'));
         $show->field('popular', __('Popular'));
+        $show->field('poster')->image();
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -90,6 +92,7 @@ class ShowController extends AdminController
         $form->radio('quality', __('Quality'))->options(['1' => 'SD', '2' => 'HD','3' => 'Full HD'])->default('1');
         $form->text('trailer_link', __('Trailer link'));
         $form->switch('popular', __('Popular'));
+        $form->multipleImage('poster', __('Poster'));
 
         return $form;
     }

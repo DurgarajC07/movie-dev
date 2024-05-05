@@ -16,9 +16,7 @@
                     <li>
                         <a href="#" class="footer-link">TV Show</a>
                     </li>
-                    <li>
-                        <a href="#" class="footer-link">Web Series</a>
-                    </li>
+
                 </ul>
             </div>
 
@@ -27,16 +25,16 @@
             <div class="quicklink-wrapper">
                 <ul class="quicklink-list">
                     <li>
-                        <a href="#" class="quicklink-link">Faq</a>
+                        <a href="#" class="quicklink-link"></a>
                     </li>
                     <li>
-                        <a href="#" class="quicklink-link">Help center</a>
+                        <a href="#" class="quicklink-link"></a>
                     </li>
                     <li>
-                        <a href="#" class="quicklink-link">Terms of use</a>
+                        <a href="#" class="quicklink-link"></a>
                     </li>
                     <li>
-                        <a href="#" class="quicklink-link">Privacy</a>
+                        <a href="#" class="quicklink-link"></a>
                     </li>
                 </ul>
                 <ul class="social-list">
@@ -69,7 +67,7 @@
     <div class="footer-bottom">
         <div class="container">
             <p class="copyright">
-                &copy; {{ date('Y') }} <a href="#">collerteam</a>. All Rights Reserved
+                &copy; {{ date('Y') }} <a href="#">collerteam</a>.
             </p>
             <img src="{{ asset('assets/images/footer-bottom-img.png') }}" alt="Online banking companies logo"
                 class="footer-bottom-img">

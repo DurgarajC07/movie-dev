@@ -23,6 +23,73 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Modal style */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+
+        .modal-dialog {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-title {
+            margin: 0;
+            color: var(--citrine);
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        /* Responsive styles */
+        @media (min-width: 768px) {
+            .modal-dialog {
+                max-width: 70%;
+                /* Adjust the maximum width for medium-sized screens */
+            }
+
+            #videoPlayer {
+                width: 560px;
+                /* Adjust width for medium-sized screens */
+                height: 315px;
+                /* Adjust height for medium-sized screens */
+            }
+        }
+
+        @media (min-width: 992px) {
+            .modal-dialog {
+                max-width: 50%;
+                /* Adjust the maximum width for large screens */
+            }
+
+            #videoPlayer {
+                width: 640px;
+                /* Adjust width for large screens */
+                height: 360px;
+                /* Adjust height for large screens */
+            }
+        }
+    </style>
 </head>
 
 <body id="#top">
@@ -126,7 +193,7 @@
                                 <p class="text">Streaming Channels</p>
                             </div>
 
-                            <button class="btn btn-primary">
+                            <button id="watchButton" class="btn btn-primary">
                                 <ion-icon name="play"></ion-icon>
 
                                 <span>Watch Trailer</span>
@@ -145,7 +212,22 @@
                 </div>
             </section>
 
-
+            <!-- Modal -->
+            <div class="modal" id="watchModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="watchModalLabel">Watch Trailer</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <!-- Embedded video player -->
+                                <iframe class="embed-responsive-item" id="videoPlayer" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -351,6 +433,37 @@
   -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- JavaScript -->
+    <script>
+        // JavaScript to handle the "Watch Now" button click event
+        document.addEventListener('DOMContentLoaded', function() {
+            var watchButton = document.getElementById('watchButton');
+            var videoPlayer = document.getElementById('videoPlayer');
+            var modal = document.getElementById('watchModal');
+
+            // Add event listener to the "Watch Now" button
+            watchButton.addEventListener('click', function() {
+                // Replace 'trailer_link' with the actual property that holds the trailer URL in your movie object
+                var trailerLink = '{{ $show->trailer_link }}';
+
+                // Set the src attribute of the video player iframe to the trailer URL
+                videoPlayer.src = trailerLink;
+
+                // Show the modal
+                modal.style.display = 'block';
+            });
+
+            // Close modal event handler (optional)
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    // Hide the modal when clicked outside the modal content
+                    modal.style.display = 'none';
+                    // Stop video playback when modal is closed
+                    videoPlayer.src = '';
+                }
+            });
+        });
+    </script>
 
 </body>
 

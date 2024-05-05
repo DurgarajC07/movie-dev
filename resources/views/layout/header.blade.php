@@ -44,9 +44,6 @@
                     <a href="#" class="navbar-link">Tv Show</a>
                 </li>
 
-                <li>
-                    <a href="#" class="navbar-link">Web Series</a>
-                </li>
 
             </ul>
 

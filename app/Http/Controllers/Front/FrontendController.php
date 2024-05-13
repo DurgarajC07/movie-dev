@@ -27,6 +27,13 @@ class FrontendController extends Controller
         return view('front.index',$data);
     }
 
+    public function movie()
+    {
+        $data['movies'] = Movie::orderBy('created_at', 'desc')->paginate(3);
+        
+        return view('front.movie',$data);
+    }
+
     public function show($id)
     {
         $data['movie'] = Movie::findOrFail($id)->load('category'); 
@@ -55,5 +62,32 @@ class FrontendController extends Controller
     
         return view('front.tvshow-download', $data);
     }
+
+    public function search(Request $request) {
+        // Get the search value from the request
+        $search = $request->input('search');
+    
+      
+     // Search in the title and body columns from the movies table
+     $movies = Movie::query()
+     ->where('name', 'LIKE', "%{$search}%")
+     ->orWhere('description', 'LIKE', "%{$search}%")
+     ->get();
+
+    // Search in the title and body columns from the tv_shows table
+    $tvShows = Shows::query()
+        ->where('show_name', 'LIKE', "%{$search}%")
+        ->orWhere('description', 'LIKE', "%{$search}%")
+        ->get();
+
+    // Return the search results for movies and TV shows separately as JSON
+    return response()->json([
+        'movies' => $movies,
+        'tvShows' => $tvShows
+    ]);
+        
+    }
+    
+    
     
 }

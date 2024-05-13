@@ -90,3 +90,21 @@ function toggleContent(type) {
     localStorage.setItem('contentType', 'topMovies'); // Store the content type in local storage
   }
 }
+
+// serach js
+function toggleSearch() {
+  var input = document.querySelector('.search-input');
+  var button = document.querySelector('.search-button');
+
+  // Toggle animation class
+  button.classList.toggle('shake-animation');
+
+  // Clear input value
+  input.value = '';
+
+  // Remove animation class after animation ends
+  setTimeout(function() {
+    button.classList.remove('shake-animation');
+  }, 500);
+}
+

@@ -1,11 +1,21 @@
 @extends('layout.layout')
 @section('content')
+    <section class="tv-series">
+        <div class="container">
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" name="search" placeholder="Search...">
+            </div>
+            <div id="searchResults">
+                <!-- Search results will be displayed here -->
+            </div>
+        </div>
+    </section>
     <main>
         <article>
 
             <!--
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            - #UPCOMING
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    - #UPCOMING
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  -->
 
             <section class="upcoming">
                 <div class="container">
@@ -113,8 +123,8 @@
             </section>
 
             <!--
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            - #TOP RATED
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    - #TOP RATED
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  -->
 
             <section class="top-rated">
                 <div class="container">
@@ -224,8 +234,8 @@
 
 
             <!--
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            - #TV SERIES
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    - #TV SERIES
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  -->
 
             <section class="tv-series">
                 <div class="container">

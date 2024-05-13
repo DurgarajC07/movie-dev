@@ -19,4 +19,8 @@ Route::get('movie-details/{id}', [FrontendController::class, 'show'])->name('mov
 Route::get('tvshow-details/{id}', [FrontendController::class, 'tvshow'])->name('tvshow.details');
 Route::get('movie-download/{id}', [FrontendController::class, 'moviedownload'])->name('movie.download');
 Route::get('tvshow-download/{id}', [FrontendController::class, 'tvshowdownload'])->name('tvshow.download');
+Route::get('/search', [FrontendController::class, 'search'])->name('search');
+Route::get('/movie', [FrontendController::class, 'movie']);
+Route::get('/tvshow', [FrontendController::class, 'tvshow']);
+
 

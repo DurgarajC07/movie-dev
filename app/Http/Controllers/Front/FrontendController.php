@@ -27,13 +27,7 @@ class FrontendController extends Controller
         return view('front.index',$data);
     }
 
-    public function movie()
-    {
-        $data['movies'] = Movie::orderBy('created_at', 'desc')->paginate(3);
-        
-        return view('front.movie',$data);
-    }
-
+    
     public function show($id)
     {
         $data['movie'] = Movie::findOrFail($id)->load('category'); 
@@ -88,6 +82,18 @@ class FrontendController extends Controller
         
     }
     
-    
+    public function movie()
+    {
+        $data['movies'] = Movie::orderBy('created_at', 'desc')->paginate(12);
+        
+        return view('front.movie',$data);
+    }
+
+    public function shows()
+    {
+        $data['shows'] = Shows::orderBy('created_at', 'desc')->paginate(12);
+        
+        return view('front.tvshow',$data);
+    }
     
 }

@@ -161,7 +161,7 @@
                             });
                         } else {
                             // Display a message if there are no search results
-                            html += '<li>No results found</li>';
+                            html += '<div class="badge badge-fill">No results found</div>';
                         }
                         html += '</ul></div>';
                         $('#searchResults').html(html);

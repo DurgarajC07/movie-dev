@@ -48,7 +48,29 @@
 
 
                     </ul>
-                    {{ $movies->links() }}
+                    <div class="horizontal-pagination">
+                        <ul class="pagination-horizontal">
+
+                            <!-- Previous Page Link -->
+                            <li class="page-item {{ $movies->onFirstPage() ? 'disabled' : '' }}">
+                                <a class="page-link" href="{{ $movies->previousPageUrl() }}" rel="prev">«</a>
+                            </li>
+
+                            <!-- Pagination Elements -->
+                            @for ($i = 1; $i <= $movies->lastPage(); $i++)
+                                <li class="page-item {{ $movies->currentPage() == $i ? 'active' : '' }}">
+                                    <a class="page-link" href="{{ $movies->url($i) }}">{{ $i }}</a>
+                                </li>
+                            @endfor
+
+                            <!-- Next Page Link -->
+                            <li class="page-item {{ $movies->hasMorePages() ? '' : 'disabled' }}">
+                                <a class="page-link" href="{{ $movies->nextPageUrl() }}" rel="next">»</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
                 </div>
             </section>
         </article>

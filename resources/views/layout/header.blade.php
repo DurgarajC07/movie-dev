@@ -37,11 +37,11 @@
                 </li>
 
                 <li>
-                    <a href="#" class="navbar-link">Movie</a>
+                    <a href="{{ url('/movie') }}" class="navbar-link">Movie</a>
                 </li>
 
                 <li>
-                    <a href="#" class="navbar-link">Tv Show</a>
+                    <a href="{{ url('/tvshow') }}" class="navbar-link">Tv Show</a>
                 </li>
 
 
@@ -85,4 +85,3 @@
 
     </div>
 </header>
-

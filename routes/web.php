@@ -21,6 +21,6 @@ Route::get('movie-download/{id}', [FrontendController::class, 'moviedownload'])-
 Route::get('tvshow-download/{id}', [FrontendController::class, 'tvshowdownload'])->name('tvshow.download');
 Route::get('/search', [FrontendController::class, 'search'])->name('search');
 Route::get('/movie', [FrontendController::class, 'movie']);
-Route::get('/tvshow', [FrontendController::class, 'tvshow']);
+Route::get('/tvshow', [FrontendController::class, 'shows']);
 
 
